@@ -49,7 +49,7 @@ pip install safe-file-walker
 Or install directly from source:
 
 ```bash
-pip install git+https://github.com/your-username/safe-file-walker.git
+pip install git+https://github.com/saiconfirst/safe_file_walker.git
 ```
 
 ## 📖 Basic Usage
