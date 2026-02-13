@@ -1,8 +1,11 @@
 # Safe File Walker
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Non--Commercial--Only-red)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
 [![Code Style: Black](https://img.shields.io/badge/Code%20Style-Black-black)](https://github.com/psf/black)
+
+> ⚠️ **Non-Commercial Use Only** — Commercial use requires explicit permission.  
+> Contact: [@saicon001 on Telegram](https://t.me/saicon001)
 
 A **production-grade**, **security-hardened** file system walker for Python with built-in protection against common vulnerabilities and resource exhaustion attacks.
 
