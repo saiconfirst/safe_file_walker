@@ -223,6 +223,18 @@ This implementation was developed through rigorous security auditing and iterati
 
 ## 📬 Contributing
 
+## 💬 Stay in Touch
+
+If you're using **Safe File Walker** in your projects or just want to say hello:
+
+- 🤝 **Morally support** the project by sharing feedback  
+- 💡 Suggest improvements or report edge cases  
+- ❤️ **Materially support** via [Kaspi](https://kaspi.kz/qr?id=YOUR_ID) if it saves you time or enhances security
+
+I’d love to hear from you!
+
+[![Telegram](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram&logoColor=white)](https://t.me/saicon001)
+
 Contributions are welcome! Please open an issue or pull request on GitHub.
 
 ---
