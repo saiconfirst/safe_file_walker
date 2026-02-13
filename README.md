@@ -1,36 +1,80 @@
-&lt;p align="center"&gt;
-  🔒 &lt;b&gt;Safe File Walker&lt;/b&gt; 🔒
-&lt;/p&gt;
+ Понял! GitHub неправильно отображает HTML-теги. Вот исправленная версия — только Markdown, без HTML:
 
-&lt;p align="center"&gt;
-  &lt;b&gt;Finally, a secure alternative to &lt;code&gt;os.walk()&lt;/code&gt;&lt;/b&gt;
-&lt;/p&gt;
+```markdown
+# 🔒 Safe File Walker
 
-&lt;p align="center"&gt;
-  &lt;img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python 3.10+"&gt;
-  &lt;img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"&gt;
-  &lt;img src="https://img.shields.io/badge/status-production--ready-brightgreen.svg" alt="Production Ready"&gt;
-&lt;/p&gt;
+**Finally, a secure alternative to `os.walk()`**
+
+![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)
+![MIT License](https://img.shields.io/badge/license-MIT-green.svg)
+![Production Ready](https://img.shields.io/badge/status-production--ready-brightgreen.svg)
 
 ---
 
 ## 🚀 Quick Start
 
-```python
-from pathlib import Path
-from safe_file_walker import SafeWalkConfig, SafeFileWalker
 
-config = SafeWalkConfig(
-    root=Path("/var/www/uploads"),
-    max_rate_mb_per_sec=50,      # Don't kill the disk
-    timeout_sec=3600,             # Max 1 hour
-    max_depth=5,                  # Don't go too deep
-    follow_symlinks=False,        # Sandbox mode
-)
+## 🛡️ Security Features
 
-with SafeFileWalker(config) as walker:
-    for file_path in walker:
-        process(file_path)
+| Threat | Protection |
+|--------|------------|
+| **Path Traversal** | `is_relative_to()` strict checking |
+| **Symlink attacks** | Optional following, always validated |
+| **Hardlink duplicates** | LRU cache by (device, inode) |
+| **Infinite recursion** | Depth limits + timeout |
+| **DoS via huge dirs** | Rate limiting (MB/sec) |
+| **Race conditions** | Atomic `lstat()`, TOCTOU-safe |
 
-print(walker.stats)  
-# Files: 15420, Skipped: 3, Dirs skipped: 1, Bytes: 2147483648, Time: 45.23s
+---
+
+## ⚡ Why not `os.walk()`?
+
+| Feature | `os.walk()` | **SafeFileWalker** |
+|---------|-------------|-------------------|
+| Symlink escapes | ❌ Vulnerable | ✅ **Blocked** |
+| Hardlink dedup | ❌ Processed N× | ✅ **LRU cache** |
+| Infinite loops | ❌ Hangs forever | ✅ **Timeout/depth** |
+| Rate limiting | ❌ Unrestricted | ✅ **MB/sec limit** |
+| Real-time stats | ❌ Silent | ✅ **Live statistics** |
+| Callbacks on skip | ❌ No | ✅ **Observability** |
+
+---
+
+## 💼 Use Cases
+
+- 🔍 **Antivirus/EDR** — Safe scanning of user uploads
+- 💾 **Backup systems** — Deduplication, no symlink escapes  
+- ☁️ **Cloud storage** — Tenant isolation, quota enforcement
+- 🕵️ **Forensics** — Deterministic, auditable traversal
+- 🌐 **Web hosting** — Secure file manager backend
+
+---
+
+## 📦 Installation
+
+```bash
+# From PyPI (coming soon)
+pip install safe-file-walker
+
+# Or just copy the file (zero dependencies)
+wget https://raw.githubusercontent.com/saiconfirst/safe_file_walker/main/safe_file_walker.py
+```
+
+---
+
+## 📊 Performance
+
+- **Zero-allocation hot path** — No GC pressure during traversal
+- **`__slots__` everywhere** — Minimal memory footprint
+- **Lazy evaluation** — Generator-based, constant memory
+- **Optional determinism** — Sorted or fast mode
+
+---
+
+## 📝 License
+
+MIT License — free for commercial use. See [LICENSE](LICENSE).
+
+---
+
+**🔥 The filesystem walker Python should have had 20 years ago 🔥**
