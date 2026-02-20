@@ -7,12 +7,12 @@ name = "safe-file-walker"
 version = "1.0.0"
 description = "Secure filesystem traversal for Python with hardlink deduplication, rate limiting, and DoS protection"
 readme = "README.md"
-license = {text = "MIT"}
-authors = [{name = "saiconfirst", email = "your.email@example.com"}]
+license = {text = "Non-Commercial"}
+authors = [{name = "saiconfirst", email = "247169576+saiconfirst@users.noreply.github.com"}]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
+    "License :: Other/Proprietary License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -28,3 +28,4 @@ dependencies = []
 [project.urls]
 Homepage = "https://github.com/saiconfirst/safe_file_walker"
 Repository = "https://github.com/saiconfirst/safe_file_walker"
+Issues = "https://github.com/saiconfirst/safe_file_walker/issues"

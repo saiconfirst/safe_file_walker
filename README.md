@@ -212,9 +212,19 @@ pytest tests/ -v
 - **Data migration utilities**
 - **Security auditing tools**
 
+## 💖 Support
+
+If you find this project useful, consider supporting its development:
+
+- **Commercial licensing** for business use: contact [@saicon001 on Telegram](https://t.me/saicon001)
+- **Sponsor** the developer via [GitHub Sponsors](https://github.com/sponsors/saiconfirst) (coming soon)
+- **Star** the repository to show your appreciation
+
+---
+
 ## 📜 License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Non-Commercial License - commercial use requires explicit written permission from the author. See [LICENSE](LICENSE) for full terms.
 
 ## 🙏 Acknowledgments
 
