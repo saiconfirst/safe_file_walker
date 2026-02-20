@@ -3,6 +3,10 @@
 [![License](https://img.shields.io/badge/License-Non--Commercial--Only-red)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
 [![Code Style: Black](https://img.shields.io/badge/Code%20Style-Black-black)](https://github.com/psf/black)
+![GitHub Repo stars](https://img.shields.io/github/stars/saiconfirst/safe_file_walker?style=social)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/safe-file-walker?label=PyPI%20downloads)
+![GitHub last commit](https://img.shields.io/github/last-commit/saiconfirst/safe_file_walker)
+![GitHub issues](https://img.shields.io/github/issues/saiconfirst/safe_file_walker)
 
 > ⚠️ **Non-Commercial Use Only** — Commercial use requires explicit permission.  
 > Contact: [@saicon001 on Telegram](https://t.me/saicon001)
@@ -53,6 +57,20 @@ Or install directly from source:
 
 ```bash
 pip install git+https://github.com/saiconfirst/safe_file_walker.git
+```
+
+## 🚀 Quick Start
+
+```python
+from pathlib import Path
+from safe_file_walker import SafeFileWalker, SafeWalkConfig
+
+# Scan current directory with safe defaults
+config = SafeWalkConfig(root=Path(".").resolve())
+
+with SafeFileWalker(config) as walker:
+    for file_path in walker:
+        print(file_path)
 ```
 
 ## 📖 Basic Usage
@@ -212,6 +230,33 @@ pytest tests/ -v
 - **Data migration utilities**
 - **Security auditing tools**
 
+## ❓ FAQ
+
+### Why not just use `os.walk` or `pathlib.rglob`?
+`os.walk` and `pathlib.rglob` are vulnerable to symlink attacks, hardlink duplication, and resource exhaustion. Safe File Walker provides military‑grade security guarantees while maintaining performance.
+
+### How does hardlink deduplication work?
+Each file is identified by `(device_id, inode_number)`. An LRU cache tracks already‑processed files, preventing duplicate work when the same file appears via multiple hardlinks.
+
+### What’s the performance impact of rate limiting?
+Rate limiting adds negligible overhead (a few nanoseconds per file). It prevents I/O‑based denial‑of‑service attacks and ensures predictable resource consumption.
+
+### Can I use Safe File Walker in async code?
+Yes. While the walker itself is synchronous, you can run it in a thread pool (e.g., `asyncio.to_thread`) or process files asynchronously inside the loop.
+
+### Is it safe to follow symbolic links?
+Only if you trust the entire directory tree. By default, symlinks are **never** followed (`follow_symlinks=False`). When enabled, each resolved path is validated against the root boundary.
+
+### What happens on timeout?
+The walker raises a `TimeoutError` and stops iteration. Any files already yielded remain valid.
+
+### Can I use this for real‑time malware scanning?
+Absolutely. The combination of rate limiting, timeout control, and deterministic ordering makes it ideal for security scanning pipelines.
+
+### How do I contribute?
+See [Contributing](#-contributing). We welcome security audits, performance improvements, and new feature proposals.
+
+---
 ## 💖 Support
 
 If you find this project useful, consider supporting its development:
