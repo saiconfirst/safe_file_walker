@@ -1,17 +1,26 @@
 # Safe File Walker
 
+<div align="center">
+
+<img src="assets/logo.jpg" width="100" alt="Safe File Walker Logo">
+
 [![License](https://img.shields.io/badge/License-Non--Commercial--Only-red)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
+[![PyPI](https://img.shields.io/pypi/v/safe-file-walker.svg)](https://pypi.org/project/safe-file-walker/)
 [![Code Style: Black](https://img.shields.io/badge/Code%20Style-Black-black)](https://github.com/psf/black)
 ![GitHub Repo stars](https://img.shields.io/github/stars/saiconfirst/safe_file_walker?style=social)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/safe-file-walker?label=PyPI%20downloads)
 ![GitHub last commit](https://img.shields.io/github/last-commit/saiconfirst/safe_file_walker)
 ![GitHub issues](https://img.shields.io/github/issues/saiconfirst/safe_file_walker)
 
+</div>
+
 > ⚠️ **Non-Commercial Use Only** — Commercial use requires explicit permission.  
 > Contact: [@saicon001 on Telegram](https://t.me/saicon001)
 
 A **production-grade**, **security-hardened** file system walker for Python with built-in protection against common vulnerabilities and resource exhaustion attacks.
+
+**📖 Live Demo:** [View interactive examples](https://saiconfirst.github.io/safe_file_walker/)
 
 ## 🛡️ Why Use Safe File Walker?
 
